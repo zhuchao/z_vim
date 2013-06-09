@@ -2,9 +2,6 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
-
 """"""""""""""基本设置"""""""""
 "文件在Vim之外修改过，自动重新读入
 set autoread
@@ -15,6 +12,10 @@ set encoding=utf8
 "设置tab的长度等于4个空格
 set tabstop=4
 
+"设置缩进长度
+set sw=4
+
+"命令行自动完成
 set wildmenu
 
 "设置选中之后按*和#就可以对选中的部分进行查找
