@@ -1,5 +1,6 @@
+execute pathogen#infect()
 syntax on
-set runtimepath=/home/liangjun/Vim/
+filetype plugin indent on
 
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
@@ -21,11 +22,17 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
 "设置vim文件浏览
-let g:winManagerWindowLayout = 'FileExplorer,TagsExplorer|BufExplorer'
-nmap <C-W><C-F> :FirstExplorerWindow<cr>
-nmap <C-W><C-B> :BottomExplorerWindow<cr>
-nmap <silent> <F8> :WMToggle<cr>
+map <C-n> :NERDTreeToggle<CR>
 
+"设置自动加载模板路径
+let g:template_path = '~/.vimConfig/templates/'
+
+"设置自动加载模板引用的参数
+let g:t_author = 'jun.liang'
+let g:t_email = 'liangjun0305@gmail.com'
+let g:t_website = ""
+
+"source ~/.vimConfig/syntax/javascript.vim
 
 """""""""""""样式""""""""""""""
 
@@ -44,18 +51,12 @@ set incsearch
 "设置读取文件的格式
 set ffs=unix,dos
 
-set foldmethod=marker
-let php_folding = 1
-let g:winManagerWindowLayout = 'FileExplorer,TagsExplorer|BufExplorer'
-nmap <C-W><C-F> :FirstExplorerWindow<cr>
-nmap <C-W><C-B> :BottomExplorerWindow<cr>
-nmap <silent> <F8> :WMToggle<cr>
 
 
+"""""""""符号和代码补全""""""""""""""
+"html代码补全,使用Ctrl+_进行补全
+source ~/.vimConfig/plugin/closetag.vim
 
-source /home/liangjun/Vim/scripts/closetag.vim
-
-"""""""""符号补全""""""""""""""
 "设置高亮宣示匹配的符号
 set showmatch
 
@@ -69,6 +70,7 @@ set showmatch
 :inoremap ] <c-r>=ClosePair(']')<CR>
 
 
+"""""""""""""共用函数"""""""""""""""""
 function! VisualSelection(direction) range
     let l:saved_reg = @"
     execute "normal! vgvy"
@@ -97,6 +99,3 @@ function! ClosePair(char)
    return a:char
   endif
 endf
-
-set wrap
-
