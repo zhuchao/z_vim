@@ -1,7 +1,7 @@
 # My vimrc
 用vim有6年了，这些配置都是一点点积累起来
 
-最近两周，参考https://github.com/amix/vimrc，做了整理。
+最近两周，参考https://github.com/amix/vimrc ，做了整理。
 
 ## 安装
 	git clone https://github.com/liangjun0305/myvim.git  ~/.vimConfig
@@ -16,6 +16,6 @@
 * [pathogen.vim](https://github.com/tpope/vim-pathogen)NERD Tree的依赖包
 
 ## 配色
-地址：http://vimcolorschemetest.googlecode.com/svn/html/index-c.html(http://vimcolorschemetest.googlecode.com/svn/html/index-c.html)
+地址：http://vimcolorschemetest.googlecode.com/svn/html/index-c.html
 
 这里有很多，别挑花眼了
