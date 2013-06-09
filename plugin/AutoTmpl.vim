@@ -1,6 +1,7 @@
 "=============================================================================
 " File:       AutoTmpl.vim
 " Maintainer: Lluis Vilanova <vilanova in ac upc edu>
+" Modify: jun.liang liangjun0305@gmail.com
 " License:    GPL version 3 or any later version
 " Created:    2008-09-16
 " GetLatestVimScripts: 2460 1 :AutoInstall: AutoTmpl.vim
@@ -15,6 +16,7 @@
 "-----------------------------------------------------------------------------
 " History:
 "   * 2008-09-16 -- Initial version
+"   * 2013-6-9 -- edit function LoadTemplateFile GetTemplateFile
 "
 " TODO:
 "   None by now.
@@ -30,7 +32,7 @@ autocmd BufNewFile * :call <SID>MaybeLoadTemplate(1)
 
 " User commands
 command -nargs=0 LoadTemplate call <SID>MaybeLoadTemplate(0)
-command -nargs=1 LoadTemplateFile call <SID>LoadTemplateFile(<args>)
+command -nargs=1 LoadTemplateFile call <SID>LoadTemplateFile(<f-args>)
 
 " Internal code
 
@@ -58,11 +60,15 @@ function <SID>MaybeLoadTemplate(check)
 endfunction
 
 function <SID>LoadTemplateFile(file)
-    let file = s:GetTemplateFile(a:file)
-    if file == ""
-        return
+	let extension = expand("%:e")
+	if exists("g:template_path")
+		let file = expand(g:template_path . a:file . "." . extension)
+	endif
+	if filereadable(file)
+		call s:LoadTemplate(file)
+	else
+		return
     endif
-    call s:LoadTemplate(file)
 endfunction
 
 function s:GetTemplateFile(template)
