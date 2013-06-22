@@ -1,6 +1,6 @@
 execute pathogen#infect()
 syntax on
-filetype plugin indent on
+"filetype plugin indent on
 
 """"""""""""""基本设置"""""""""
 "文件在Vim之外修改过，自动重新读入
