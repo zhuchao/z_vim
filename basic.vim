@@ -15,6 +15,7 @@ set tabstop=4
 "设置缩进长度
 set sw=4
 
+set autoindent
 "命令行自动完成
 set wildmenu
 
@@ -30,8 +31,8 @@ let g:template_path = '~/.vimConfig/templates/'
 
 "设置自动加载模板引用的参数
 let g:t_author = 'jun.liang'
-let g:t_email = 'liangjun0305@gmail.com'
-let g:t_website = ""
+let g:t_email = 'jun.liang@ifchange.com'
+let g:t_website = "www.ifchange.com"
 
 "source ~/.vimConfig/syntax/javascript.vim
 
@@ -52,7 +53,16 @@ set incsearch
 "设置读取文件的格式
 set ffs=unix,dos
 
-
+"记录上次位置 
+if has("autocmd")
+        " In text files, always limit the width of text to 78 characters
+        autocmd BufRead *.txt set tw=78
+        " When editing a file, always jump to the last cursor position
+        autocmd BufReadPost *
+        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+        \ exe "normal g'\"" |
+        \ endif
+endif
 
 """""""""符号和代码补全""""""""""""""
 "html代码补全,使用Ctrl+_进行补全
