@@ -30,8 +30,8 @@ map <C-n> :NERDTreeToggle<CR>
 let g:template_path = '~/.vimConfig/templates/'
 
 "设置自动加载模板引用的参数
-let g:t_author = 'jun.liang'
-let g:t_email = 'jun.liang@ifchange.com'
+let g:t_author = 'zhuchao'
+let g:t_email = 'zhuchao@ifchange.com'
 let g:t_website = "www.ifchange.com"
 
 "source ~/.vimConfig/syntax/javascript.vim
