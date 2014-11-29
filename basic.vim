@@ -39,9 +39,9 @@ let g:t_website = "www.ifchange.com"
 """""""""""""样式""""""""""""""
 
 "设置样式,这些样式都在color文件夹下，以下是我喜欢的几个，放这方便切换
-colorscheme tango
+"colorscheme tango
 "colorscheme blink
-"colorscheme calmar256
+colorscheme calmar256
 "colorscheme xterm16
 
 "设置搜索高亮显示
@@ -113,4 +113,10 @@ function! ClosePair(char)
   else
    return a:char
   endif
-endf
+endfunction
+
+set encoding=UTF-8
+set langmenu=zh_CN.UTF-8
+language message zh_CN.UTF-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencoding=utf-8
